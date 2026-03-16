@@ -1,4 +1,4 @@
-# THRESHOLDING
+# EXP-8-THRESHOLDING
 ## Aim
 To segment the image using global thresholding, adaptive thresholding and Otsu's thresholding using python and OpenCV.
 
@@ -9,85 +9,87 @@ To segment the image using global thresholding, adaptive thresholding and Otsu's
 ## Algorithm
 
 ### Step1:
-<br>
+Load the necessary packages
 
 ### Step2:
-<br>
-
+Read the Image and convert to grayscale
 ### Step3:
-<br>
+Use Global thresholding to segment the image.
 
 ### Step4:
-<br>
+Use Adaptive thresholding to segment the image.
 
 ### Step5:
-<br>
-
+Use Otsu's method to segment the image and display the results.
 ## Program
+NAME : ABISHEIK RAJ J
 
-```python
-# Load the necessary packages
-
-
-
-
+REG NO : 212224230006
+```
+import cv2
+import matplotlib.pyplot as plt
 
 # Read the Image and convert to grayscale
 
+image=cv2.imread('me.jpeg')
+gray_img=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
 
+# Original image
 
+plt.subplot(2,2,1)
+plt.imshow(cv2.cvtColor(image,cv2.COLOR_BGR2RGB))
+plt.title('Original Image')
+plt.axis('off')
 
 # Use Global thresholding to segment the image
 
-
-
+_,global_thresholded = cv2.threshold(gray_img, 127, 255, cv2.THRESH_BINARY)
 
 # Use Adaptive thresholding to segment the image
 
-
-
+adaptive_thresholded = cv2.adaptiveThreshold(gray_img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
 
 # Use Otsu's method to segment the image 
 
+_,otsu_thresholded = cv2.threshold(gray_img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 
+# Global Thresholding
+plt.subplot(2, 2, 2)
+plt.imshow(global_thresholded, cmap='gray')
+plt.title("Global Thresholding")
+plt.axis('off')
 
+# Adaptive Thresholding
+plt.subplot(2, 2, 3)
+plt.imshow(adaptive_thresholded, cmap='gray')
+plt.title("Adaptive Thresholding")
+plt.axis('off')
 
-# Display the results
+# Otsu's Method
+plt.subplot(2, 2, 4)
+plt.imshow(otsu_thresholded, cmap='gray')
+plt.title("Otsu's Method")
+plt.axis('off')
 
-
-
-
-
+# Show the plot
+plt.tight_layout()
+plt.show()
 ```
 ## Output
+## Original
+<img width="144" height="206" alt="image" src="https://github.com/user-attachments/assets/3c2902ea-1c7e-472a-b6c0-906b8189e068" />
 
-### Original Image
-<br>
-<br>
-<br>
-<br>
-<br>
+## Global Thresholding
+<img width="182" height="203" alt="image" src="https://github.com/user-attachments/assets/c27df1f8-0aa8-465a-95f8-324abe49196d" />
 
-### Global Thresholding
-<br>
-<br>
-<br>
-<br>
-<br>
+## Adaptive Thresholding
+<img width="194" height="205" alt="image" src="https://github.com/user-attachments/assets/1701f280-326d-449e-ba06-8b4ad02f8345" />
 
-### Adaptive Thresholding
-<br>
-<br>
-<br>
-<br>
-<br>
+## Otsu's Method
+<img width="164" height="205" alt="image" src="https://github.com/user-attachments/assets/20ab6544-f9cf-4f3c-b27b-b6dcdcdb821b" />
 
-### Optimum Global Thesholding using Otsu's Method
-<br>
-<br>
-<br>
-<br>
-<br>
+
+
 
 
 ## Result
